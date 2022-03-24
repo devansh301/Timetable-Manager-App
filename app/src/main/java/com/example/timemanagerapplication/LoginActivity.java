@@ -1,5 +1,6 @@
 package com.example.timemanagerapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
@@ -11,17 +12,16 @@ import com.google.android.filament.View;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private TextView SignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        SignUp = (TextView) findViewById(R.id.SignUp);
+        SignUp.setOnClickListener((android.view.View.OnClickListener) this);
     }
-
-   public void SignUp(View view){
-        Intent intent = new Intent(this,SignUpActivity.class);
-        startActivity(intent);
-
-    }
-
+//    @Override
+//    public
 
 }

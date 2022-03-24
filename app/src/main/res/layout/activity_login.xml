@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:backgroundTint="#603C07"
     android:foregroundTint="#603C07"
+    android:visibility="visible"
     tools:context=".LoginActivity1">
 
     <ImageView
@@ -129,6 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="#603C07"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
