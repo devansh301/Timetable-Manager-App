@@ -6,22 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
 
-import com.google.android.filament.View;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private TextView SignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        SignUp = (TextView) findViewById(R.id.SignUp);
-        SignUp.setOnClickListener((android.view.View.OnClickListener) this);
     }
-//    @Override
-//    public
-
+    public void SignUpFunc(View view){
+        Intent intent = new Intent(this,SignUpActivity.class);
+        startActivity(intent);
+    }
+    public void ForgotPasswordFunc(View view){
+        Intent intent = new Intent(this, ForgotPasswordActivity.class);
+        startActivity(intent);
+    }
 }

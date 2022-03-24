@@ -20,7 +20,7 @@
     <string name="password_textView">Password</string>
     <string name="forgot_password_textView">Forgot Password</string>
     <string name="getlink_textView">Get Link</string>
-    <string name="enter_Email_textView">Enter Your Registered Email Address</string>
+    <string name="enter_Email_textView">Email Address</string>
     <string name="future_task">Future Task</string>
     <string name="postponded_task">Postponded Task</string>
     <string name="goal_status">Goal Status</string>
