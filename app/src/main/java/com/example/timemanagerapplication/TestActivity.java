@@ -63,22 +63,23 @@ public class TestActivity extends AppCompatActivity {
         if (username.isEmpty()){
             name.setError("User Name is required");
             name.requestFocus();
+            return;
         }
         if(email.isEmpty()){
             Email.setError("Email is required");
-            Email.requestFocus();
+            Email.requestFocus();return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             Email.setError("Enter vaild Email address");
-            Email.requestFocus();
+            Email.requestFocus();return;
         }
         if(password.isEmpty()){
             Password.setError("Password is required");
-            Password.requestFocus();
+            Password.requestFocus();return;
         }
         if(password.length() < 6){
             Password.setError("Password is too short");
-            Password.requestFocus();
+            Password.requestFocus();return;
         }
 
         progressDialog.show();
@@ -87,8 +88,8 @@ public class TestActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
-                        if(task.isSuccessful()){
-                            User user = new User(username,email,password);
+                        if(task.isSuccessful()) {
+                            User user = new User(username, email, password);
                             String id = task.getResult().getUser().getUid();
                             database.getReference().child("Users").child(id).setValue(user);
 
@@ -96,6 +97,7 @@ public class TestActivity extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(TestActivity.this, "SignUp is failed", Toast.LENGTH_SHORT).show();
+                            return;
                         }
                     }
                 });
