@@ -4,14 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.content.IntentSender;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,13 +27,14 @@ public class LoginActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     Button LoginBtn;
     EditText user_edit_text, password_edit_text;
-    TextView forgotpasswordbutton;
+    TextView forgot_password_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        forgotpasswordbutton = findViewById(R.id.textView8);
+        forgot_password_button = findViewById(R.id.textView8);
 
+        getSupportActionBar().hide();    //To hide ActionBar // it will crash the app if in theme by default ActionBar is in hidden state
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -43,10 +42,12 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Please Wait");
 
+//        Intent intent = getIntent();
+
         user_edit_text = findViewById(R.id.editTextTextEmailAddress);
         password_edit_text = findViewById(R.id.editTextTextPassword);
         LoginBtn = findViewById(R.id.button);
-        forgotpasswordbutton = findViewById(R.id.textView8);
+        forgot_password_button = findViewById(R.id.textView8);
 
         LoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        forgotpasswordbutton.setOnClickListener(new View.OnClickListener() {
+        forgot_password_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ForgotPasswordFunc();

@@ -15,6 +15,15 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+//////////////////////////////////////////
+//      ___  ___       ___    __   _    //             //Activity gets terminated on clicking getlink after righting a valid email address
+//     /   |/   |     /   |  |  \ | |   //
+//    / /|   /| |    / /| |  |   \| |   //
+//   / / |__/ | |   / /_| |  | |\   |   //
+//  / /       | |  / /  | |  | | \  |   //
+// /_/        |_| /_/   |_|  |_|  \_|   //
+//                                      //
+//////////////////////////////////////////
 
 public class ForgotPasswordActivity2 extends AppCompatActivity {
 
@@ -32,6 +41,7 @@ public class ForgotPasswordActivity2 extends AppCompatActivity {
         editText_email = findViewById(R.id.editTextTextEmailAddress2);
         button = findViewById(R.id.button4);
 
+//        getSupportActionBar().hide();
         progressDialog = new ProgressDialog(ForgotPasswordActivity2.this);
         progressDialog.setTitle("Sending Link");
         progressDialog.setMessage("Please Wait ........");
@@ -41,20 +51,30 @@ public class ForgotPasswordActivity2 extends AppCompatActivity {
             public void onClick(View view) {
                 String email = editText_email.getText().toString().trim();
                 progressDialog.show();
-                if(Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                if(email.isEmpty()){
+                    progressDialog.dismiss();
+                    Toast.makeText(ForgotPasswordActivity2.this, "Enter Email Address", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else{
+                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    progressDialog.dismiss();
+                    Toast.makeText(ForgotPasswordActivity2.this, "Enter a valid Email", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     mAuth.sendPasswordResetEmail(email)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressDialog.dismiss();
-                                    if(task.isSuccessful()){
+                                    if (task.isSuccessful()) {
                                         Toast.makeText(ForgotPasswordActivity2.this, "Reset Like is Sent", Toast.LENGTH_SHORT).show();
-                                    }
-                                    else{
+                                    } else {
                                         Toast.makeText(ForgotPasswordActivity2.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
+                }
                 }
             }
         });

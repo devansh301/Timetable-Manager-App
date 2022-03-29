@@ -9,7 +9,6 @@ import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
-import android.widget.ProgressBar;
 import android.content.Intent;
 import android.widget.Toast;
 
@@ -37,6 +36,8 @@ public class TestActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+        getSupportActionBar().hide();
+
         progressDialog = new ProgressDialog(TestActivity.this);
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("We're creating your account");
@@ -47,6 +48,7 @@ public class TestActivity extends AppCompatActivity {
         button2 = findViewById(R.id.button2);
 
         Intent intent = getIntent();
+//        getSupportActionBar().hide();
 
         button2.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -67,19 +69,23 @@ public class TestActivity extends AppCompatActivity {
         }
         if(email.isEmpty()){
             Email.setError("Email is required");
-            Email.requestFocus();return;
+            Email.requestFocus();
+            return;
         }
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             Email.setError("Enter vaild Email address");
-            Email.requestFocus();return;
+            Email.requestFocus();
+            return;
         }
         if(password.isEmpty()){
             Password.setError("Password is required");
-            Password.requestFocus();return;
+            Password.requestFocus();
+            return;
         }
         if(password.length() < 6){
             Password.setError("Password is too short");
-            Password.requestFocus();return;
+            Password.requestFocus();
+            return;
         }
 
         progressDialog.show();
@@ -97,7 +103,6 @@ public class TestActivity extends AppCompatActivity {
                         }
                         else{
                             Toast.makeText(TestActivity.this, "SignUp is failed", Toast.LENGTH_SHORT).show();
-                            return;
                         }
                     }
                 });
