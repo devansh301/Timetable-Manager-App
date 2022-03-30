@@ -2,6 +2,8 @@ package com.example.timemanagerapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.content.Intent;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.timemanagerapplication.Adapters.FragmentsAdapter;
+import com.example.timemanagerapplication.Adapters.TasksAdapter;
 import com.example.timemanagerapplication.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -30,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
+        RecyclerView taskList = (RecyclerView) findViewById(R.id.taskList);
+        taskList.setLayoutManager(new LinearLayoutManager(this));
+        String[] tasks = {"Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1"};
+        taskList.setAdapter(new TasksAdapter(tasks));
 //        setContentView(R.layout.activity_main);
         setContentView(binding.getRoot());
 
