@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        RecyclerView taskList = (RecyclerView) findViewById(R.id.taskList);
-        taskList.setLayoutManager(new LinearLayoutManager(this));
-        String[] tasks = {"Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1"};
-        taskList.setAdapter(new TasksAdapter(tasks));
+        //RecyclerView taskList = (RecyclerView) findViewById(R.id.taskList);
+//        taskList.setLayoutManager(new LinearLayoutManager(this));
+//        String[] tasks = {"Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1","Task1"};
+//        taskList.setAdapter(new TasksAdapter(tasks));
 //        setContentView(R.layout.activity_main);
         setContentView(binding.getRoot());
 

@@ -16,7 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 //////////////////////////////////////////
-//      ___  ___       ___    __   _    //             //Activity gets terminated on clicking getlink after righting a valid email address
+//      ___  ___       ___    __   _    //             //Activity gets terminated on clicking getlink after writing a valid email address
 //     /   |/   |     /   |  |  \ | |   //
 //    / /|   /| |    / /| |  |   \| |   //
 //   / / |__/ | |   / /_| |  | |\   |   //
@@ -30,7 +30,7 @@ public class ForgotPasswordActivity2 extends AppCompatActivity {
     EditText editText_email;
     Button button;
     ProgressDialog progressDialog;
-    FirebaseAuth mAuth;
+    FirebaseAuth auth;
     FirebaseDatabase database;
 
     @Override
@@ -54,15 +54,15 @@ public class ForgotPasswordActivity2 extends AppCompatActivity {
                 if(email.isEmpty()){
                     progressDialog.dismiss();
                     Toast.makeText(ForgotPasswordActivity2.this, "Enter Email Address", Toast.LENGTH_SHORT).show();
-                    return;
                 }
                 else{
                 if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     progressDialog.dismiss();
                     Toast.makeText(ForgotPasswordActivity2.this, "Enter a valid Email", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 else{
-                    mAuth.sendPasswordResetEmail(email)
+                    auth.sendPasswordResetEmail(email)        //PLEASE CHECK THIS: IT IS SHOWING THE INPUT STRING IS NULL
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
