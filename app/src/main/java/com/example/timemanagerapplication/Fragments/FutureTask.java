@@ -3,12 +3,18 @@ package com.example.timemanagerapplication.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.timemanagerapplication.Adapters.TasksAdapter;
+import com.example.timemanagerapplication.Models.taskmodel;
 import com.example.timemanagerapplication.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +31,8 @@ public class FutureTask extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    RecyclerView recyclerView;
+    ArrayList<taskmodel> dataholder;
 
     public FutureTask() {
         // Required empty public constructor
@@ -61,6 +69,37 @@ public class FutureTask extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_future_task, container, false);
+        View view= inflater.inflate(R.layout.fragment_future_task, container, false);
+        recyclerView=view.findViewById(R.id.rclview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        dataholder= new ArrayList<taskmodel>();
+
+        taskmodel ob1=new taskmodel(R.drawable.angular, "Angular", "Web Application");
+        dataholder.add(ob1);
+        taskmodel ob2=new taskmodel(R.drawable.cp, "C Programming", "Embed Programming");
+        dataholder.add(ob2);
+        taskmodel ob3=new taskmodel(R.drawable.cpp, "C++ Programming", "Embed Programming");
+        dataholder.add(ob3);
+        taskmodel ob4=new taskmodel(R.drawable.dotnet, ".NET Programming", "Desktop and Web Programming");
+        dataholder.add(ob4);
+        taskmodel ob5=new taskmodel(R.drawable.angular, "Angular", "Web Application");
+        dataholder.add(ob5);
+        taskmodel ob6=new taskmodel(R.drawable.cp, "C Programming", "Embed Programming");
+        dataholder.add(ob6);
+        taskmodel ob7=new taskmodel(R.drawable.cpp, "C++ Programming", "Embed Programming");
+        dataholder.add(ob7);
+        taskmodel ob8=new taskmodel(R.drawable.dotnet, ".NET Programming", "Desktop and Web Programming");
+        dataholder.add(ob8);
+        taskmodel ob9=new taskmodel(R.drawable.angular, "Angular", "Web Application");
+        dataholder.add(ob9);
+        taskmodel ob10=new taskmodel(R.drawable.cp, "C Programming", "Embed Programming");
+        dataholder.add(ob10);
+        taskmodel ob11=new taskmodel(R.drawable.cpp, "C++ Programming", "Embed Programming");
+        dataholder.add(ob11);
+        taskmodel ob12=new taskmodel(R.drawable.dotnet, ".NET Programming", "Desktop and Web Programming");
+        dataholder.add(ob12);
+
+        recyclerView.setAdapter(new TasksAdapter(dataholder));
+        return view;
     }
 }

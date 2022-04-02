@@ -43,7 +43,7 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
             title = "Goal Status";
         }
         if(position==2){
-            title = "Postponded Task";
+            title = "Unfinished Task";
         }
         return title;
 //        return super.getPageTitle(position);

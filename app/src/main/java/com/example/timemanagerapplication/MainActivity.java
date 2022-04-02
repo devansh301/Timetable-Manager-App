@@ -21,8 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.zip.Inflater;
 
-//import com.google.android.filament.View;
-
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;

@@ -39,7 +39,7 @@
         android:id="@+id/button2"
         android:layout_width="322dp"
         android:layout_height="63dp"
-        android:backgroundTint="#603C07"
+        android:backgroundTint="@color/brown"
         android:text="@string/Signup_textView"
         android:textSize="24sp"
         app:cornerRadius="10dp"

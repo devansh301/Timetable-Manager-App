@@ -42,11 +42,4 @@ public class User {
         this.password = password;
     }
 
-    public String getProfilepic() {
-        return profilepic;
-    }
-
-    public void setProfilepic(String profilepic) {
-        this.profilepic = profilepic;
-    }
 }

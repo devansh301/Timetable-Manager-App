@@ -88,7 +88,7 @@
         android:layout_width="284dp"
         android:layout_height="76dp"
         android:layout_marginTop="64dp"
-        android:backgroundTint="#603C07"
+        android:backgroundTint="@color/brown"
         android:text="@string/Login_activity"
         android:textSize="24sp"
         app:cornerRadius="10dp"
@@ -125,17 +125,4 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
         app:layout_constraintVertical_bias="0.361" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminateTint="#603C07"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.694" />
 </androidx.constraintlayout.widget.ConstraintLayout>

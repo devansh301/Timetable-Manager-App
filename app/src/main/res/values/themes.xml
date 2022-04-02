@@ -2,11 +2,11 @@
     <!-- Base application theme. -->
     <style name="Theme.TimeManagerApplication" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/brown</item>
+        <item name="colorPrimary">#9A6516</item>
         <item name="colorPrimaryVariant">#9A6516</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/brown</item>
+        <item name="colorSecondary">#9A6516</item>
         <item name="colorSecondaryVariant">#9A6516</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

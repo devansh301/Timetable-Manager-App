@@ -22,14 +22,14 @@
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:background="@color/brown"
+            android:background="#9A6516"
             android:elevation="12dp"
             app:tabGravity="fill"
             app:tabIndicator="@color/black"
             app:tabMaxWidth="0dp"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/white"
+            app:tabTextColor="@color/browser_actions_title_color"
             tools:ignore="MissingConstraints" />
 
         <androidx.viewpager.widget.ViewPager
@@ -46,7 +46,7 @@
         android:contentDescription="@string/todo"
         android:focusable="true"
         android:onClick="func"
-        app:backgroundTint="@color/brown"
+        app:backgroundTint="#9A6516"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.887"

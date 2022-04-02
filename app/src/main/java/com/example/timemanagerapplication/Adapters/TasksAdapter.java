@@ -1,50 +1,56 @@
 package com.example.timemanagerapplication.Adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.timemanagerapplication.Models.taskmodel;
 import com.example.timemanagerapplication.R;
 import com.google.android.gms.tasks.Tasks;
 
 import java.util.ArrayList;
 
-public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TaskViewHolder>{
+public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.myviewholder>{
 
-    private String[] data;
-    public TasksAdapter(String[] data){
-        this.data = data;
+    ArrayList<taskmodel> dataholder;
+
+    public TasksAdapter(ArrayList<taskmodel> dataholder) {
+        this.dataholder = dataholder;
+    }
+
+    @NonNull
+    @Override
+    public myviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sample_layout_file,parent,false);
+        return new myviewholder(view);
     }
 
     @Override
-    public TaskViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.sample_layout_file,parent,false);
-        return new TaskViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-          String title = data[position];
-          holder.task_name.setText(title);
+    public void onBindViewHolder(@NonNull myviewholder holder, int position) {
+        holder.img.setImageResource(dataholder.get(position).getImage());
+        holder.header.setText(dataholder.get(position).getHeader());
+        holder.desc.setText(dataholder.get(position).getDesc());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return dataholder.size();
     }
 
-    public class TaskViewHolder extends RecyclerView.ViewHolder {
-        TextView task_name,task_description;
-        public TaskViewHolder(View itemView) {
+    class myviewholder extends RecyclerView.ViewHolder{
+        ImageView img;
+        TextView header,desc;
+
+        public myviewholder(@NonNull View itemView) {
             super(itemView);
-            task_name = (TextView) itemView.findViewById(R.id.TaskName);
-            //task_description = (TextView) itemView.findViewById(R.id.Taskdescription);
+            img = itemView.findViewById(R.id.img1);
+            header = itemView.findViewById(R.id.t1);
+            desc = itemView.findViewById(R.id.t2);
         }
     }
 }
