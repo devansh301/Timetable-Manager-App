@@ -2,16 +2,15 @@ package com.example.timemanagerapplication.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.timemanagerapplication.Models.postpondedTaskmodel;
 import com.example.timemanagerapplication.Models.taskmodel;
 import com.example.timemanagerapplication.R;
-import com.google.android.gms.tasks.Tasks;
 
 import java.util.ArrayList;
 
@@ -32,7 +31,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.myviewholder
 
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
-        holder.img.setImageResource(dataholder.get(position).getImage());
+        //holder.img.setImageResource(dataholder.get(position).getImage());
         holder.header.setText(dataholder.get(position).getHeader());
         holder.desc.setText(dataholder.get(position).getDesc());
     }
@@ -43,12 +42,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.myviewholder
     }
 
     class myviewholder extends RecyclerView.ViewHolder{
-        ImageView img;
+        //ImageView img;
         TextView header,desc;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.img1);
+            //img = itemView.findViewById(R.id.img1);
             header = itemView.findViewById(R.id.t1);
             desc = itemView.findViewById(R.id.t2);
         }

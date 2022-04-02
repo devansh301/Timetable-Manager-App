@@ -7,47 +7,52 @@ app:cardCornerRadius="5dp"
 android:elevation="4dp"
 app:cardUseCompatPadding="true">
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp">
+<!--<RelativeLayout-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:padding="16dp">-->
 
-    <ImageView
-        android:id="@+id/img1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="23dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginRight="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:src="@mipmap/ic_launcher" />
+<!--    <ImageView-->
+<!--        android:id="@+id/img1"-->
+<!--        android:layout_width="80dp"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginLeft="10dp"-->
+<!--        android:layout_marginTop="14dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:paddingRight="10dp"-->
+<!--        android:src="@mipmap/ic_launcher" />-->
 
-    <TextView
-        android:id="@+id/t1"
+
+<!--</RelativeLayout>-->
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="4dp"
-        android:layout_toRightOf="@id/img1"
-        android:gravity="center_vertical"
-        android:text="This is Header Text"
-        android:textSize="25dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/t2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/t1"
-        android:layout_marginLeft="4dp"
-        android:layout_toRightOf="@id/img1"
-        android:text="This is Description Text"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:text="This is Header Text"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
-
-</RelativeLayout>
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:paddingLeft="20dp"
+            android:text="This is Description Text"
+            android:textSize="20dp" />
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

@@ -1,15 +1,15 @@
 package com.example.timemanagerapplication.Models;
 
 public class taskmodel {
-    int image;
+    //int image;
     String header,desc;
 
-    public taskmodel(int image,String header,String desc){
-        this.image = image;
+    public taskmodel(/*int image,*/String header,String desc){
+        //this.image = image;
         this.header = header;
         this.desc = desc;
     }
-
+/*
     public int getImage() {
         return image;
     }
@@ -17,7 +17,7 @@ public class taskmodel {
     public void setImage(int image) {
         this.image = image;
     }
-
+*/
     public String getHeader() {
         return header;
     }
