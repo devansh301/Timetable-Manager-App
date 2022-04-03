@@ -15,15 +15,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-//////////////////////////////////////////
-//      ___  ___       ___    __   _    //             //Activity gets terminated on clicking getlink after writing a valid email address
-//     /   |/   |     /   |  |  \ | |   //
-//    / /|   /| |    / /| |  |   \| |   //
-//   / / |__/ | |   / /_| |  | |\   |   //
-//  / /       | |  / /  | |  | | \  |   //
-// /_/        |_| /_/   |_|  |_|  \_|   //
-//                                      //
-//////////////////////////////////////////
 
 public class ForgotPasswordActivity2 extends AppCompatActivity {
 
@@ -38,6 +29,7 @@ public class ForgotPasswordActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password2);
 
+        auth = FirebaseAuth.getInstance();
         editText_email = findViewById(R.id.editTextTextEmailAddress2);
         button = findViewById(R.id.button4);
 
@@ -49,20 +41,21 @@ public class ForgotPasswordActivity2 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = editText_email.getText().toString().trim();
+                String email1 = editText_email.getText().toString();
                 progressDialog.show();
-                if(email.isEmpty()){
+                if(email1.isEmpty()){
                     progressDialog.dismiss();
                     Toast.makeText(ForgotPasswordActivity2.this, "Enter Email Address", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 else{
-                if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                if(!Patterns.EMAIL_ADDRESS.matcher(email1).matches()) {
                     progressDialog.dismiss();
                     Toast.makeText(ForgotPasswordActivity2.this, "Enter a valid Email", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 else{
-                    auth.sendPasswordResetEmail(email)        //PLEASE CHECK THIS: IT IS SHOWING THE INPUT STRING IS NULL
+                    auth.sendPasswordResetEmail(email1)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

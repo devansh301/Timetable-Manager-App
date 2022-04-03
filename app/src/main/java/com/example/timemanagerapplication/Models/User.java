@@ -1,16 +1,17 @@
 package com.example.timemanagerapplication.Models;
 
 public class User {
-    public String username,email,password,profilepic;
+    public String username,email,password;
+    public String profilepic = "empty";
 
     User(){
 
     };
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String profilepic) {
         this.username = username;
         this.email = email;
-        this.password = password;
+        this.profilepic = profilepic;
     }
 
     public User(String email, String password) {
@@ -42,4 +43,7 @@ public class User {
         this.password = password;
     }
 
+    public String getProfilepic() { return profilepic; }
+
+    public void setProfilepic(String profilepic) { this.profilepic = profilepic; }
 }

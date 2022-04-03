@@ -61,6 +61,7 @@ public class TestActivity extends AppCompatActivity {
         String email = Email.getText().toString().trim();
         String username = name.getText().toString().trim();
         String password = Password.getText().toString().trim();
+        String Profilepic = "empty";
 
         if (username.isEmpty()){
             name.setError("User Name is required");
@@ -95,7 +96,7 @@ public class TestActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if(task.isSuccessful()) {
-                            User user = new User(username, email, password);
+                            User user = new User(username, email, Profilepic);
                             String id = task.getResult().getUser().getUid();
                             database.getReference().child("Users").child(id).setValue(user);
 
