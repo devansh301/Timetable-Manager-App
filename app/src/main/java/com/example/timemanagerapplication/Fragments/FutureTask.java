@@ -1,7 +1,10 @@
 package com.example.timemanagerapplication.Fragments;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,8 +16,11 @@ import android.view.ViewGroup;
 import com.example.timemanagerapplication.Adapters.TasksAdapter;
 import com.example.timemanagerapplication.Models.taskmodel;
 import com.example.timemanagerapplication.R;
+import com.example.timemanagerapplication.Task;
+import com.example.timemanagerapplication.TaskViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,6 +39,8 @@ public class FutureTask extends Fragment {
     private String mParam2;
     RecyclerView recyclerView;
     ArrayList<taskmodel> dataholder;
+
+    private TaskViewModel mTaskViewModel;
 
     public FutureTask() {
         // Required empty public constructor
@@ -58,11 +66,20 @@ public class FutureTask extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        mTaskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
+        mTaskViewModel.getAllTasks().observe(this, new Observer<List<Task>>(){
+          @Override
+            public void onChanged(@NonNull final List<Task> tasks) {
+              adapter.setTask(tasks);
+          }
+        });
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
